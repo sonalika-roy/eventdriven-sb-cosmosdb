@@ -1,0 +1,22 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "serviceBus": {
+    "prefetchCount": 2,
+    "sessionHandlerOptions": {
+      "maxConcurrentSessions": 5
+    },
+    "batchOptions": {
+      "maxMessageCount": 5,
+      "operationTimeout": "00:01:00",
+      "autoComplete": true
+    }
+  }
+}
