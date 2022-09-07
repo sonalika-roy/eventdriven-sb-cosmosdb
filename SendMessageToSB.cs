@@ -31,10 +31,10 @@ namespace eventdrivenapp
             public string DamageLevel { get; set; }
             public int DeviceAgeInDays { get; set; }
         }
-        static string connectionString = "Endpoint=sb://sreventdriven.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=7ynQMILl/kd2V1IhTAjWH20fXJ5owu+zfVNlrZlVgj0=";
+        static string connectionString = "";
 
         // name of your Service Bus queue
-        static string queueName = "srtest";
+        static string queueName = "orders";
         // the client that owns the connection and can be used to create senders and receivers
         static ServiceBusClient client;
 
@@ -43,7 +43,7 @@ namespace eventdrivenapp
 
 
         [FunctionName("SendMessageToSB")]
-        [return: ServiceBus("srtest", Connection = "outputSbMsg")]
+        [return: ServiceBus("orders", Connection = "outputSbMsg")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
